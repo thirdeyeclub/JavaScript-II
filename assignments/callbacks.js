@@ -41,20 +41,21 @@ function sumNums(x, y, cb) {
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
   return cb(k*x);
-}
+};
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-  if (list.includes(item)) {
-    return cb(true);
+  for(let i = 0; i < list.length; i++){
+    if (list[i] === item) {
+      return cb(true);
+    } else {
+      return cb(false);
+    }
   }
-  return false;
 }
+contains("Dog", items, contains => console.log(contains));
 
- 
-const list = ["Hello", "Goodbye", "Bonjour"];
-contains("Hello", list);
 
 /* STRETCH PROBLEM */
 
